@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federico Prunell's Site</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --aqua-green: #00ffcc;
+            --dark-aqua: #00ccaa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
+            animation: parallaxMove 20s infinite alternate ease-in-out;
+        }
+        
+        @keyframes parallaxMove {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            background-color: var(--aqua-green);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--dark-aqua);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item {
+            border-left: 4px solid var(--aqua-green);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: var(--aqua-green);
+            border-radius: 50%;
+            position: absolute;
+            left: -12px;
+            top: 0;
+        }
+        
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-item .date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certificate-link {
+            display: inline-block;
+            margin: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            background-color: var(--aqua-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .certificate-link:hover {
+            background-color: var(--dark-aqua);
+        }
+        
+        
+        .lang-toggle:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2rem;
+            border: 4px solid var(--aqua-green);
+			transform: scale(1.8);
+        }
+		
+		.profile-photo-header {
+			width: 125px; /* Adjust the width as needed */
+			height: 125px; /* Adjust the height as needed */
+			border-radius: 50%;
+			object-fit: cover;
+			margin-right: 1rem; /* Space between the image and the header text */
+			float: left; /* Align the image to the left */
+			border: 4px solid var(--black);
+		}
+		
+		.header-links {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			display: flex;
+			flex-direction: row; /* Explicitly set to row */
+			align-items: center;
+			gap: 0.5rem; /* Space between items */
+		}
+
+		.social-link, .lang-toggle {
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: white;
+			border: none;
+			border-radius: 4px;
+		}
+
+		.social-link.circular {
+			border-radius: 50%;
+		}
+
+		.social-icon {
+			width: 20px;
+			height: 20px;
+			object-fit: contain;
+		}
+
+		.lang-toggle {
+			font-weight: bold;
+			padding: 0;
+			width: auto; /* Allow width to adjust to content */
+			min-width: 32px; /* Minimum width to match other buttons */
+		}
+
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="parallax-bg"></div>
+    <header>
+    <div class="container">
+        <img src="https://media.discordapp.net/attachments/428599269264457729/1273050263443472394/foto_cv_1.jpg?ex=66bd33f2&is=66bbe272&hm=ed5b8ddb8096a32896b54c4f81ecdec450cea2e832b1ba63723f98954c0f7891&=&format=webp&width=891&height=993" alt="Federico Prunell" class="profile-photo-header">
+        <h1>Federico Prunell's Site</h1>
+		<div class="header-links">
+			<a href="https://www.linkedin.com/in/federico-prunell-36b684207/" class="social-link">
+				<img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG32.png" alt="LinkedIn" class="social-icon">
+			</a>
+			<a href="https://github.com/Riloox" class="social-link circular">
+				<img src="https://pngimg.com/uploads/github/github_PNG80.png" alt="GitHub" class="social-icon">
+			</a>
+			<button class="lang-toggle" onclick="toggleLanguage()">ES</button>
+		</div>
+    </div>
+</header>
+
+
+
+    <main class="container">
+        <section class="profile-section">
+            <div>
+                <h2 class="lang-en">Welcome to my webpage!</h2>
+                <h2 class="lang-es" style="display: none;">¡Bienvenido a mi página web!</h2>
+                <p class="lang-en">
+                    Welcome, I am Federico Prunell, an IT student in my third year of a Bachelor's Degree. I have a strong foundation in various IT domains and a passion for technology and learning. Right now I am focusing on Machine Learning and Deep Learning, but I am mostly proficient in programming add-ons for other programs in Java. I am interested in exploring different cultures and gaining new experiences.
+                </p>
+                <p class="lang-es" style="display: none;">
+                    Bienvenido, soy Federico Prunell, un estudiante de TI en mi tercer año de Licenciatura. Tengo una sólida base en varios dominios de TI y una pasión por la tecnología y el aprendizaje. En este momento me estoy enfocando en Machine Learning y Deep Learning, pero soy más competente en la programación de complementos para otros programas en Java. Estoy interesado en explorar diferentes culturas y ganar nuevas experiencias.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="lang-en">Education and Training Timeline</h2>
+            <h2 class="lang-es" style="display: none;">Cronología de Educación y Formación</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="lang-en">Bachelor's Degree on Information Technology</h3>
+                    <h3 class="lang-es" style="display: none;">Licenciatura en Tecnología de la Información</h3>
+                    <p class="date">1 Mar 2021 – Current</p>
+                    <p>Technological University of Uruguay (utec.edu.uy)</p>
+                    <p>Address: Barrio Anglo, Padrón 3716, 65000, Fray Bentos, Uruguay</p>
+                    <p class="lang-en">The Bachelor's Degree in Information Technology has as training areas those linked to the lines of Programming, Testing and Technological Infrastructure.</p>
+                    <p class="lang-es" style="display: none;">La Licenciatura en Tecnología de la Información tiene como áreas de formación aquellas vinculadas a las líneas de Programación, Testing e Infraestructura Tecnológica.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="lang-en">Higher Technician Degree in Information Technology</h3>
+                    <h3 class="lang-es" style="display: none;">Técnico Superior en Tecnología de la Información</h3>
+                    <p class="date">1 Mar 2021 – 20 Jul 2023</p>
+                    <p>Technological University of Uruguay (utec.edu.uy)</p>
+                    <p>City: Barrio Anglo Padrón 3716 65000 Fray Bentos, Country: Uruguay</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="lang-en">Exchange Student at Karelia UAS</h3>
+                    <h3 class="lang-es" style="display: none;">Estudiante de Intercambio en Karelia UAS</h3>
+                    <p class="date">1 Aug 2023 – 15 Dec 2023</p>
+                    <p>Karelia University of applied sciences</p>
+                    <p>City: Joensuu, Country: Finland</p>
+                    <p class="lang-en">Exchange programme for a semester in Karelia UAS. Degree in Information and Communication Technology (ICT) provides you with a wide knowhow for working on the ICT field in Finland. The studies take place in modern learning environments and are strongly linked to the real future expertise needs presented by ICT companies.</p>
+                    <p class="lang-es" style="display: none;">Programa de intercambio por un semestre en Karelia UAS. El grado en Tecnología de la Información y la Comunicación (TIC) te proporciona un amplio conocimiento para trabajar en el campo de las TIC en Finlandia. Los estudios se realizan en entornos de aprendizaje modernos y están fuertemente vinculados a las necesidades de experiencia futura real presentadas por las empresas de TIC.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+    <h2 class="lang-en">Portfolio of Certificates</h2>
+    <h2 class="lang-es" style="display: none;">Portafolio de Certificados</h2>
+    <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-machine-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Machine Learning - Kaggle</a>
+    <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-deep-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Deep Learning - Kaggle</a>
+</section>
+
+    </main>
+
+    <script>
+        function toggleLanguage() {
+            const enElements = document.querySelectorAll('.lang-en');
+            const esElements = document.querySelectorAll('.lang-es');
+            const langToggle = document.querySelector('.lang-toggle');
+            
+            enElements.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
+            esElements.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
+            
+            langToggle.textContent = langToggle.textContent === 'ES' ? 'EN' : 'ES';
+        }
+    </script>
+</body>
+</html>
