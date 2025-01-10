@@ -129,7 +129,6 @@
             background-color: var(--dark-aqua);
         }
         
-        
         .lang-toggle:hover {
             background-color: #f0f0f0;
         }
@@ -147,82 +146,130 @@
             object-fit: cover;
             margin-right: 2rem;
             border: 4px solid var(--aqua-green);
-			transform: scale(1.8);
+            transform: scale(1.8);
         }
-		
-		.profile-photo-header {
-			width: 125px; /* Adjust the width as needed */
-			height: 125px; /* Adjust the height as needed */
-			border-radius: 50%;
-			object-fit: cover;
-			margin-right: 1rem; /* Space between the image and the header text */
-			float: left; /* Align the image to the left */
-			border: 4px solid var(--black);
-		}
-		
-		.header-links {
-			position: absolute;
-			top: 1rem;
-			right: 1rem;
-			display: flex;
-			flex-direction: row; /* Explicitly set to row */
-			align-items: center;
-			gap: 0.5rem; /* Space between items */
-		}
+        
+        .profile-photo-header {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            float: left;
+            border: 4px solid var(--black);
+        }
+        
+        .header-links {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-		.social-link, .lang-toggle {
-			width: 32px;
-			height: 32px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background-color: white;
-			border: none;
-			border-radius: 4px;
-		}
+        .social-link, .lang-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: none;
+            border-radius: 4px;
+        }
 
-		.social-link.circular {
-			border-radius: 50%;
-		}
+        .social-link.circular {
+            border-radius: 50%;
+        }
 
-		.social-icon {
-			width: 20px;
-			height: 20px;
-			object-fit: contain;
-		}
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
 
-		.lang-toggle {
-			font-weight: bold;
-			padding: 0;
-			width: auto; /* Allow width to adjust to content */
-			min-width: 32px; /* Minimum width to match other buttons */
-		}
+        .lang-toggle {
+            font-weight: bold;
+            padding: 0;
+            width: auto;
+            min-width: 32px;
+        }
 
-
-
+        /* New Projects Section Styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            color: var(--dark-aqua);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .project-link:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
-
 
 <body>
     <div class="parallax-bg"></div>
     <header>
-    <div class="container">
-        <img src="https://media.discordapp.net/attachments/428599269264457729/1273050263443472394/foto_cv_1.jpg?ex=66bd33f2&is=66bbe272&hm=ed5b8ddb8096a32896b54c4f81ecdec450cea2e832b1ba63723f98954c0f7891&=&format=webp&width=891&height=993" alt="Federico Prunell" class="profile-photo-header">
-        <h1>Federico Prunell's Site</h1>
-		<div class="header-links">
-			<a href="https://www.linkedin.com/in/federico-prunell-36b684207/" class="social-link">
-				<img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG32.png" alt="LinkedIn" class="social-icon">
-			</a>
-			<a href="https://github.com/Riloox" class="social-link circular">
-				<img src="https://pngimg.com/uploads/github/github_PNG80.png" alt="GitHub" class="social-icon">
-			</a>
-			<button class="lang-toggle" onclick="toggleLanguage()">ES</button>
-		</div>
-    </div>
-</header>
-
-
+        <div class="container">
+            <img src="https://i.postimg.cc/c4XZRdZd/19-01-3.jpg" alt="Federico Prunell" class="profile-photo-header">
+            <h1>Federico Prunell's Site</h1>
+            <div class="header-links">
+                <a href="https://www.linkedin.com/in/federico-prunell-36b684207/" class="social-link">
+                    <img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG32.png" alt="LinkedIn" class="social-icon">
+                </a>
+                <a href="https://github.com/Riloox" class="social-link circular">
+                    <img src="https://pngimg.com/uploads/github/github_PNG80.png" alt="GitHub" class="social-icon">
+                </a>
+                <button class="lang-toggle" onclick="toggleLanguage()">ES</button>
+            </div>
+        </div>
+    </header>
 
     <main class="container">
         <section class="profile-section">
@@ -271,12 +318,45 @@
         </section>
 
         <section>
-    <h2 class="lang-en">Portfolio of Certificates</h2>
-    <h2 class="lang-es" style="display: none;">Portafolio de Certificados</h2>
-    <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-machine-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Machine Learning - Kaggle</a>
-    <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-deep-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Deep Learning - Kaggle</a>
-</section>
+            <h2 class="lang-en">Portfolio of Certificates</h2>
+            <h2 class="lang-es" style="display: none;">Portafolio de Certificados</h2>
+            <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-machine-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Machine Learning - Kaggle</a>
+            <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-deep-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Deep Learning - Kaggle</a>
+            <a href="https://www.credly.com/badges/7fae3d84-5241-42dc-b2ec-292319132a9e/linked_in_profile" class="certificate-link" style="display: block; margin-bottom: 1rem;">AWS Academy Graduate - AWS Academy Cloud Foundations</a>
+            <a href="https://www.credly.com/badges/022de146-1c75-4e93-9be4-a5bffc2d4521/linked_in_profile" class="certificate-link" style="display: block; margin-bottom: 1rem;">Google Cloud Computing Foundations Certificate</a>
+        </section>
 
+        <!-- New Projects Section -->
+        <section>
+            <h2 class="lang-en">Personal Projects</h2>
+            <h2 class="lang-es" style="display: none;">Proyectos Personales</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <a href="https://github.com/Riloox/AFK-Timeskip-for-SMP-1.21" class="project-link">
+                    <div class="project-card">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-digital-stopwatch-icon-download-in-svg-png-gif-file-formats--time-game-sport-football-pack-outdoor-games-icons-1575979.png" alt="Project 1" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">AFK Timeskip for Minecraft 1.21</h3>
+                            <p class="project-description lang-en">AFK Timeskip is a Minecraft plugin for Spigot 1.21 servers that enhances the AFK (Away From Keyboard) experience. When a player goes AFK, they become invulnerable. If they are the only player on the server, the plugin increases the server tick rate to accelerate time passage, simulating a "time skip" effect.</p>
+                            <p class="project-description lang-es" style="display: none;">AFK Timeskip es un plugin de Minecraft para servidores Spigot 1.21 que mejora la experiencia AFK (Away From Keyboard). Cuando un jugador está AFK, se vuelve invulnerable. Si son el único jugador en el servidor, el plugin aumenta la velocidad del servidor para acelerar el paso del tiempo, simulando un efecto de «salto en el tiempo».</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 2 -->
+                <a href="https://github.com/Riloox/survivalspawnermanager" class="project-link">
+                    <div class="project-card">
+                        <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/cf/Spawner_with_fire.png/revision/latest?cb=20190925003048" alt="Project 2" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Survival Spawner Manager for Minecraft 1.21</h3>
+                            <p class="project-description lang-en">It allows players to mine Mob Spawners with Silk Touch and modify the mob spawned and equipment of the mob spawned if applicable, by using player levels.</p>
+                            <p class="project-description lang-es" style="display: none;">Permite a los jugadores minar Mob Spawners con Silk Touch y modificar el mob engendrado y el equipamiento del mob engendrado si procede, utilizando los niveles del jugador.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
     <script>
