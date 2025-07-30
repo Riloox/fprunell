@@ -8,8 +8,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         
         :root {
-            --aqua-green: #00ffcc;
-            --dark-aqua: #00ccaa;
+            --primary: #ff6b6b;
+            --secondary: #c94f4f;
+            --background: #ffffff;
+            --text: #333333;
+            --accent: #f4f4f4;
         }
         
         * {
@@ -21,30 +24,9 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
-        }
-        
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
-            animation: parallaxMove 20s infinite alternate ease-in-out;
-        }
-        
-        @keyframes parallaxMove {
-            0% {
-                background-position: 0% 0%;
-            }
-            100% {
-                background-position: 100% 100%;
-            }
+            color: var(--text);
+            background-color: var(--background);
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -56,15 +38,19 @@
         }
         
         header {
-            background-color: var(--aqua-green);
+            background-color: var(--primary);
             color: white;
-            padding: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 600;
+            display: inline-block;
         }
         
         main {
@@ -72,21 +58,28 @@
         }
         
         section {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
+            background-color: var(--accent);
+            border-radius: 12px;
             padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
         
         h2 {
-            color: var(--dark-aqua);
+            color: var(--secondary);
             font-size: 1.8rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
         
         .timeline-item {
-            border-left: 4px solid var(--aqua-green);
+            border-left: 4px solid var(--primary);
             padding-left: 1.5rem;
             margin-bottom: 2rem;
             position: relative;
@@ -94,18 +87,19 @@
         
         .timeline-item::before {
             content: '';
-            width: 20px;
-            height: 20px;
-            background-color: var(--aqua-green);
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary);
             border-radius: 50%;
             position: absolute;
-            left: -12px;
-            top: 0;
+            left: -10px;
+            top: 4px;
         }
         
         .timeline-item h3 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
         
         .timeline-item .date {
@@ -117,16 +111,18 @@
         .certificate-link {
             display: inline-block;
             margin: 0.5rem 0;
-            padding: 0.5rem 1rem;
-            background-color: var(--aqua-green);
+            padding: 0.6rem 1.2rem;
+            background-color: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 500;
         }
         
         .certificate-link:hover {
-            background-color: var(--dark-aqua);
+            background-color: var(--secondary);
+            transform: translateY(-2px);
         }
         
         .lang-toggle:hover {
@@ -137,26 +133,25 @@
             display: flex;
             align-items: center;
             margin-bottom: 2rem;
+            gap: 2rem;
         }
         
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            margin-right: 2rem;
-            border: 4px solid var(--aqua-green);
-            transform: scale(1.8);
+            border: 3px solid var(--primary);
         }
         
         .profile-photo-header {
-            width: 125px;
-            height: 125px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             margin-right: 1rem;
+            border: 3px solid white;
             float: left;
-            border: 4px solid var(--black);
         }
         
         .header-links {
@@ -166,18 +161,23 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .social-link, .lang-toggle {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover, .lang-toggle:hover {
+            background-color: #e6e6e6;
         }
 
         .social-link.circular {
@@ -185,58 +185,58 @@
         }
 
         .social-icon {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             object-fit: contain;
         }
 
         .lang-toggle {
-            font-weight: bold;
-            padding: 0;
+            font-weight: 600;
+            padding: 0 0.75rem;
             width: auto;
-            min-width: 32px;
+            min-width: 36px;
+            color: var(--text);
         }
 
-        /* New Projects Section Styles */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
         
         .project-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
         
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
         
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
         
         .project-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
         }
         
         .project-title {
-            color: var(--dark-aqua);
-            font-size: 1.3rem;
+            color: var(--secondary);
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
         
         .project-description {
-            color: #666;
+            color: #555;
             font-size: 0.95rem;
             line-height: 1.5;
         }
@@ -254,7 +254,6 @@
 </head>
 
 <body>
-    <div class="parallax-bg"></div>
     <header>
         <div class="container">
             <img src="https://i.postimg.cc/c4XZRdZd/19-01-3.jpg" alt="Federico Prunell" class="profile-photo-header">
@@ -273,7 +272,6 @@
 
     <main class="container">
         <section class="profile-section">
-            <div>
                 <h2 class="lang-en">Welcome to my webpage!</h2>
                 <h2 class="lang-es" style="display: none;">¡Bienvenido a mi página web!</h2>
                 <p class="lang-en">
@@ -318,24 +316,38 @@
         </section>
 
         <section>
+            <h2 class="lang-en">Professional Experience</h2>
+            <h2 class="lang-es" style="display: none;">Experiencia Profesional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="lang-en">Software Development Analyst</h3>
+                    <h3 class="lang-es" style="display: none;">Analista de desarrollo de software</h3>
+                    <p class="date">April 2025 – Present</p>
+                    <p>Bantotal</p>
+                    <p class="lang-en">Full-time position focusing on software development.</p>
+                    <p class="lang-es" style="display: none;">Posición a tiempo completo enfocada en el desarrollo de software.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
             <h2 class="lang-en">Portfolio of Certificates</h2>
             <h2 class="lang-es" style="display: none;">Portafolio de Certificados</h2>
             <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-machine-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Machine Learning - Kaggle</a>
             <a href="https://www.kaggle.com/learn/certification/federicoprunell/intro-to-deep-learning" class="certificate-link" style="display: block; margin-bottom: 1rem;">Intro to Deep Learning - Kaggle</a>
             <a href="https://www.credly.com/badges/7fae3d84-5241-42dc-b2ec-292319132a9e/linked_in_profile" class="certificate-link" style="display: block; margin-bottom: 1rem;">AWS Academy Graduate - AWS Academy Cloud Foundations</a>
             <a href="https://www.credly.com/badges/022de146-1c75-4e93-9be4-a5bffc2d4521/linked_in_profile" class="certificate-link" style="display: block; margin-bottom: 1rem;">Google Cloud Computing Foundations Certificate</a>
+            <a href="https://www.credly.com/badges/ade291d7-ff0e-4741-b3b4-55e69997c5de/public_url" class="certificate-link" style="display: block; margin-bottom: 1rem;">Google Cloud Cybersecurity Certificate</a>
         </section>
 
-        <!-- New Projects Section -->
         <section>
             <h2 class="lang-en">Personal Projects</h2>
             <h2 class="lang-es" style="display: none;">Proyectos Personales</h2>
             
             <div class="projects-grid">
-                <!-- Project 1 -->
                 <a href="https://github.com/Riloox/AFK-Timeskip-for-SMP-1.21" class="project-link">
                     <div class="project-card">
-                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-digital-stopwatch-icon-download-in-svg-png-gif-file-formats--time-game-sport-football-pack-outdoor-games-icons-1575979.png" alt="Project 1" class="project-image">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-digital-stopwatch-icon-download-in-svg-png-gif-file-formats--time-game-sport-football-pack-outdoor-games-icons-1575979.png" alt="AFK Timeskip" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">AFK Timeskip for Minecraft 1.21</h3>
                             <p class="project-description lang-en">AFK Timeskip is a Minecraft plugin for Spigot 1.21 servers that enhances the AFK (Away From Keyboard) experience. When a player goes AFK, they become invulnerable. If they are the only player on the server, the plugin increases the server tick rate to accelerate time passage, simulating a "time skip" effect.</p>
@@ -344,10 +356,9 @@
                     </div>
                 </a>
                 
-                <!-- Project 2 -->
                 <a href="https://github.com/Riloox/survivalspawnermanager" class="project-link">
                     <div class="project-card">
-                        <img src="https://content.instructables.com/F3A/5TXK/JFX0O0QT/F3A5TXKJFX0O0QT.png?auto=webp&frame=1&md=MjAxOC0wNC0xNiAxMDozMzozOS4w" alt="Project 2" class="project-image">
+                        <img src="https://content.instructables.com/F3A/5TXK/JFX0O0QT/F3A5TXKJFX0O0QT.png?auto=webp&frame=1&md=MjAxOC0wNC0xNiAxMDozMzozOS4w" alt="Survival Spawner Manager" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Survival Spawner Manager for Minecraft 1.21</h3>
                             <p class="project-description lang-en">It allows players to mine Mob Spawners with Silk Touch and modify the mob spawned and equipment of the mob spawned if applicable, by using player levels.</p>
@@ -355,10 +366,10 @@
                         </div>
                     </div>
                 </a>
-				<!-- Project 3 -->
+                
                 <a href="https://github.com/Riloox/keylistener" class="project-link">
                     <div class="project-card">
-                        <img src="https://www.shutterstock.com/image-vector/shortcut-icon-white-background-600nw-2197211689.jpg" alt="Project 3" class="project-image">
+                        <img src="https://www.shutterstock.com/image-vector/shortcut-icon-white-background-600nw-2197211689.jpg" alt="KeyListener" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">KeyListener</h3>
                             <p class="project-description lang-en">The KeyListener program is a Python-based utility that listens for specific keyboard input sequences and performs predefined actions. It is designed to run in the background and can be configured to execute custom actions when certain key combinations are pressed. The program also supports adding itself to Windows startup for persistent execution.</p>
@@ -366,10 +377,10 @@
                         </div>
                     </div>
                 </a>
-                <!-- Project 4 -->
+                
                 <a href="https://github.com/Riloox/rilooxdb" class="project-link">
                     <div class="project-card">
-                        <img src="https://media-hosting.imagekit.io//5c39136928254d9f/Untitled.png?Expires=1836681904&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ntnGkkJ77Lpyzqwp7mdWjybaB2GMWk0aLwWgMU5wKe6GUkXaXGURerV0IJ~HLMp6UioLwz~f~1TtTNb5KYRDeKhneqhLKj0CmwVdtREr~jsWSQWloxDeHUhvezXGqUzexY1g77pVzMjonhLcxXqRsDScY4wv7x3Y1QJ3KjEHbHOwPpndbR~s3cNeN44LwX1JjXEaegqnUko0fHJvW0ykJe8lrdgPI9sRieDOFCtOKsSG-6rP3PTo9aMSBQtxfGMtRkweFfk8uj718XCQgTVJt6T7LH40LyJIJr3ah-Z2wfN8JjXBrIXhlPWzjsolUfadhJVxEOc4L9fww9D3li9iNw__" alt="RilooxDB" class="project-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGZaz1uTiKJsyaDb-hTIFPu96fFRJbhmtdeA&s" alt="RilooxDB" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">RilooxDB</h3>
                             <p class="project-description lang-en">Basic, in-memory key-value store with file persistence and encryption, built as a personal learning project to explore how databases work under the hood.</p>
@@ -387,8 +398,8 @@
             const esElements = document.querySelectorAll('.lang-es');
             const langToggle = document.querySelector('.lang-toggle');
             
-            enElements.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
-            esElements.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
+            enElements.forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
+            esElements.forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
             
             langToggle.textContent = langToggle.textContent === 'ES' ? 'EN' : 'ES';
         }
